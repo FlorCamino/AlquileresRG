@@ -17,6 +17,7 @@
         <td>{{$dato->id}}</td>
         <td>{{$dato->nombre}}</td>
         <td><a href="{{route('ciudad.show', $dato)}}">Ver detalle</a></td>
+        <td><a href="{{route('ciudad.edit', $dato)}}">Editar</a></td>
         @endforeach
       </tr> 
     </tbody>

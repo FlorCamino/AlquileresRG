@@ -66,9 +66,10 @@ class CiudadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ciudad $ciudad)
     {
         //
+        return view('ciudad.edit', compact('ciudad'));
     }
 
     /**
@@ -78,9 +79,14 @@ class CiudadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ciudad $ciudad)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+        ]);
+        $ciudad->fill($request->post())->save();
+        return redirect()->route('ciudad.index')->with('Exitoso', 'La ciudad ha sido editada con exito.');
     }
 
     /**
