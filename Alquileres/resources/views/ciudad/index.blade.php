@@ -16,11 +16,16 @@
       <tr>
         <td>{{$dato->id}}</td>
         <td>{{$dato->nombre}}</td>
-        <td><a href="{{route('ciudad.show', $dato)}}">Ver detalle</a></td>
-        <td><a href="{{route('ciudad.edit', $dato)}}">Editar</a></td>
+        <td><a href="{{route('ciudad.show', $dato)}}"><button type="submit" class="btn btn-primary btn-sm">Ver detalle</button></a></td>
+        <td><a href="{{route('ciudad.edit', $dato)}}"><button type="submit" class="btn btn-success btn-sm">Editar</button></a></td>
+        <td><form method="post" action="{{route('ciudad.destroy',$dato->id)}}">
+          @method('delete')
+          @csrf
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+      </form></td>
         @endforeach
       </tr> 
     </tbody>
   </table>
-  <a href="{{route('ciudad.create')}}">Agregar ciudad</a>
+  <a href="{{route('ciudad.create')}}"><button type="submit" class="btn btn-warning btn-sm">Agregar ciudad</button></a>
 @endsection
