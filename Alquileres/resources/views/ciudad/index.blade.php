@@ -16,7 +16,7 @@
       <tr>
         <td>{{$dato->id}}</td>
         <td>{{$dato->nombre}}</td>
-        <td><a href="/">Ver detalle</a></td>
+        <td><a href="{{route('ciudad.show', $dato->id)}}">Ver detalle</a></td>
         @endforeach
       </tr> 
     </tbody>

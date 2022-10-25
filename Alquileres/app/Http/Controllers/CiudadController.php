@@ -51,6 +51,9 @@ class CiudadController extends Controller
     public function show($id)
     {
         //
+        return view('ciudad.show', [
+            'ciudad' => Ciudad::findOrFail($id)
+        ]);
     }
 
     /**
