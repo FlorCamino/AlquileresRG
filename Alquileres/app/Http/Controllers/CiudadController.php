@@ -14,7 +14,7 @@ class CiudadController extends Controller
     public function index()
     {
         //
-        return ('Interior del index prueba');
+        return view('ciudad.index');
     }
 
     /**
