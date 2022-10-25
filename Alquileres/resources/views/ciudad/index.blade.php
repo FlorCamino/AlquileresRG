@@ -16,9 +16,10 @@
       <tr>
         <td>{{$dato->id}}</td>
         <td>{{$dato->nombre}}</td>
-        <td><a href="{{route('ciudad.show', $dato->id)}}">Ver detalle</a></td>
+        <td><a href="{{route('ciudad.show', $dato)}}">Ver detalle</a></td>
         @endforeach
       </tr> 
     </tbody>
   </table>
+  <a href="{{route('ciudad.create')}}">Agregar ciudad</a>
 @endsection

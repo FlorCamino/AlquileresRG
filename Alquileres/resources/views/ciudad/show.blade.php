@@ -14,4 +14,5 @@
 <div>
     <a href="{{route('ciudad.index')}}">Volver</a>
 </div>
+
 @endsection

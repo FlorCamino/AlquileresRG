@@ -29,6 +29,7 @@ class CiudadController extends Controller
     public function create()
     {
         //
+        return view('ciudad.create');
     }
 
     /**
@@ -40,6 +41,11 @@ class CiudadController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+        ]);
+        Ciudad::create($request->post());
+        return redirect()->route('ciudad.index')->with('Exitoso', 'La ciudad ha sido creada con exito.');
     }
 
     /**
@@ -48,12 +54,10 @@ class CiudadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ciudad $ciudad)
     {
         //
-        return view('ciudad.show', [
-            'ciudad' => Ciudad::findOrFail($id)
-        ]);
+        return view('ciudad.show', compact('ciudad'));
     }
 
     /**
